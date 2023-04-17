@@ -1,15 +1,14 @@
 GET http://localhost:3000/tweets
 
 ###
-GET  http://localhost:3000/tweets/1
+GET  http://localhost:3000/tweets/2
 
 ###
 POST http://localhost:3000/tweets
-
 Content-Type: application/json
 
 {
-    "text": "Teste"
+    "text": "Teste 2"
 }
 
 ###

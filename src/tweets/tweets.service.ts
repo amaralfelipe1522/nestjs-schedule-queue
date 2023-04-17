@@ -20,7 +20,7 @@ export class TweetsService {
   }
 
   findOne(id: number) {
-    return this.tweetModel.findOne(id as any);
+    return this.tweetModel.findByPk(id);
   }
 
   update(id: number, updateTweetDto: UpdateTweetDto) {
