@@ -6,6 +6,12 @@ GET  http://localhost:3000/tweets/1
 ###
 POST http://localhost:3000/tweets
 
+Content-Type: application/json
+
+{
+    "text": "Teste"
+}
+
 ###
 PATCH http://localhost:3000/tweets/1
 

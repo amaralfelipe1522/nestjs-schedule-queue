@@ -6,5 +6,9 @@ nest generator controller <nome do controle>
 nest g resource tweets
 lsof -i :3001
 kill -9 PROCESS_ID
+TO DO -> Tratamento de erros usando Exception Filters
+npm install sequelize sequelize-typescript sqlite3 @nestjs/sequelize
+npm install @types/sequelize --save-dev
+sqlite3 dist/database.sqlite
 
-49min
+1h25min
