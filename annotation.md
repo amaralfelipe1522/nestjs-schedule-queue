@@ -11,5 +11,9 @@ npm install sequelize sequelize-typescript sqlite3 @nestjs/sequelize
 npm install @types/sequelize --save-dev
 sqlite3 dist/database.sqlite
 TO DO -> CRUD tratativo de erro
+TO DO -> Verificar comportamento do update que está definido como PATCH, porem, provavelmente está funcionando como PUT
+Habilitar tasks no Nest: npm install @nestjs/schedule
+nest g service tweets-count-task
+Para que a tarefa em background busque sempre a partir do ultimo tweet buscado no banco, o ponteiro será armazenado em cache: npm install cache-manager @types/cache-manager
 
-1h25min
+1h37min
