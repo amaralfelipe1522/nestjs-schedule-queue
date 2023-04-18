@@ -11,23 +11,28 @@ export class TweetsService {
     private tweetModel: typeof Tweet,
   ) {}
 
-  create(createTweetDto: CreateTweetDto) {
-    return this.tweetModel.create(createTweetDto as any);
+  async create(createTweetDto: CreateTweetDto) {
+    return await this.tweetModel.create(createTweetDto as any);
   }
 
-  findAll() {
-    return this.tweetModel.findAll();
+  async findAll() {
+    return await this.tweetModel.findAll();
   }
 
-  findOne(id: number) {
-    return this.tweetModel.findByPk(id);
+  async findOne(id: number) {
+    return await this.tweetModel.findByPk(id);
   }
 
-  update(id: number, updateTweetDto: UpdateTweetDto) {
-    return `This action updates a #${id} tweet`;
+  async update(id: number, updateTweetDto: UpdateTweetDto) {
+    return await this.tweetModel.update(
+      { ...updateTweetDto },
+      { where: { id }, returning: true },
+    );
   }
+  // const [numberOfAffectedRows, [updatedPost]] = await this.postRepository.update({ ...data }, { where: { id, userId }, returning: true });
+  // return { numberOfAffectedRows, updatedPost };
 
-  remove(id: number) {
-    return `This action removes a #${id} tweet`;
+  async remove(id: number) {
+    return await this.tweetModel.destroy({ where: { id } });
   }
 }

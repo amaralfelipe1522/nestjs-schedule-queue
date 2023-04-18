@@ -31,8 +31,8 @@ export class TweetsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTweetDto: UpdateTweetDto) {
-    return this.tweetsService.update(+id, updateTweetDto);
+  update(@Param('id') id: number, @Body() updateTweetDto: UpdateTweetDto) {
+    return this.tweetsService.update(id, updateTweetDto);
   }
 
   @Delete(':id')

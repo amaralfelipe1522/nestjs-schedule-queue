@@ -10,5 +10,6 @@ TO DO -> Tratamento de erros usando Exception Filters
 npm install sequelize sequelize-typescript sqlite3 @nestjs/sequelize
 npm install @types/sequelize --save-dev
 sqlite3 dist/database.sqlite
+TO DO -> CRUD tratativo de erro
 
 1h25min

@@ -8,11 +8,16 @@ POST http://localhost:3000/tweets
 Content-Type: application/json
 
 {
-    "text": "Teste 2"
+    "text": "Teste 4"
 }
 
 ###
-PATCH http://localhost:3000/tweets/1
+PATCH http://localhost:3000/tweets/3
+Content-Type: application/json
+
+{
+    "text": "Teste 3 update 3"
+}
 
 ###
-DELETE http://localhost:3000/tweets/1
+DELETE http://localhost:3000/tweets/4
