@@ -22,4 +22,4 @@ Config para que o Nest apenas salve e reexecute quando houver alterações apena
 "src/"
 ]
 
-1h37min
+1h53min
