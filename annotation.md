@@ -22,4 +22,18 @@ Config para que o Nest apenas salve e reexecute quando houver alterações apena
 "src/"
 ]
 
+-- depois do compose
+docker-compose exec app sh
+ou
+docker exec -it <nome_do_container> sh
+npm install bull (cria as filas)
+npm install @nestjs/bull (integra o nest ao bull)
+npm install @types/bull --save-dev
+
+docker-compose exec redis sh
+redis-cli
+keys '\*'
+
+nest g module mailing
+
 1h53min

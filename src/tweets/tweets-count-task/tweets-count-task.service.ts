@@ -4,6 +4,8 @@ import { InjectModel } from '@nestjs/sequelize';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Cache } from 'cache-manager';
+import { InjectQueue } from '@nestjs/bull';
+import { Queue } from 'bull';
 
 @Injectable()
 export class TweetsCountTaskService {
@@ -14,6 +16,8 @@ export class TweetsCountTaskService {
     private tweetModel: typeof Tweet,
     @Inject(CACHE_MANAGER)
     private cacheManager: Cache,
+    @InjectQueue('emails')
+    private emailsQueue: Queue,
   ) {}
 
   //@Interval(5000)
@@ -33,7 +37,9 @@ export class TweetsCountTaskService {
     if (tweets.length == this.limit) {
       this.cacheManager.set('tweet-offset', offset + this.limit, this.ttl);
       console.log(`Buscou mais ${this.limit} tweets`);
-      console.log(tweets[2].dataValues);
+
+      // envia para a fila de emails um novo job
+      this.emailsQueue.add({ tweets: tweets.map((tweet) => tweet.toJSON()) });
     }
   }
 }
